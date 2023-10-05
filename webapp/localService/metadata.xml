@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZACET_BORSA_SRV" xml:lang="tr" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ModelBorsa" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="AlinanHisse"/>
+                </Key>
+                <Property Name="AlinanHisse" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Alınan Hissenin Adı"/>
+                <Property Name="HisseAciklama" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Hissenin Açıklaması"/>
+                <Property Name="AlinanTarih" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Hissenin Alınma Tar."/>
+                <Property Name="AlinanAdet" Type="Edm.Decimal" Precision="13" Scale="3" sap:unicode="false" sap:unit="OlcuBirimi" sap:label="Hisse Adedi"/>
+                <Property Name="OlcuBirimi" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Temel ölçü brm." sap:semantics="unit-of-measure"/>
+                <Property Name="AlisFiyat" Type="Edm.Decimal" Precision="12" Scale="3" sap:unicode="false" sap:unit="ParaBirimi" sap:label="Alış Fiyatı"/>
+                <Property Name="ParaBirimi" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Para birimi" sap:semantics="currency-code"/>
+                <Property Name="GuncelFiyat" Type="Edm.Decimal" Precision="12" Scale="3" sap:unicode="false" sap:unit="ParaBirimi" sap:label="Güncel Fiyat"/>
+                <Property Name="Maliyet" Type="Edm.Decimal" Precision="12" Scale="3" sap:unicode="false" sap:unit="ParaBirimi" sap:label="Hisse Maliyeti"/>
+                <Property Name="GuncelDeger" Type="Edm.Decimal" Precision="12" Scale="3" sap:unicode="false" sap:unit="ParaBirimi" sap:label="Güncel Toplam Değer"/>
+                <Property Name="KarZarar" Type="Edm.Decimal" Precision="12" Scale="3" sap:unicode="false" sap:unit="ParaBirimi" sap:label="Kar/Zarar"/>
+            </EntityType>
+            <EntityContainer Name="ZACET_BORSA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ModelBorsaSet" EntityType="ZACET_BORSA_SRV.ModelBorsa" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://178.18.200.189:8000/sap/opu/odata/sap/ZACET_BORSA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://178.18.200.189:8000/sap/opu/odata/sap/ZACET_BORSA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

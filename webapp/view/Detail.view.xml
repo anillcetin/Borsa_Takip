@@ -1,0 +1,111 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="borsatakip.controller.Detail"
+	height="100%">
+
+    	<!-- <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="LineItemsSet" persistencyKey="SmartFilter_Explored">
+		<smartFilterBar:controlConfiguration>
+			<smartFilterBar:ControlConfiguration key="Bukrs">
+				<smartFilterBar:defaultFilterValues>
+					<smartFilterBar:SelectOption low="0001">
+					</smartFilterBar:SelectOption>
+				</smartFilterBar:defaultFilterValues>
+			</smartFilterBar:ControlConfiguration>
+			<smartFilterBar:ControlConfiguration key="Gjahr">
+				<smartFilterBar:defaultFilterValues>
+					<smartFilterBar:SelectOption low="2014">
+					</smartFilterBar:SelectOption>
+				</smartFilterBar:defaultFilterValues>
+			</smartFilterBar:ControlConfiguration>
+		</smartFilterBar:controlConfiguration>
+	</smartFilterBar:SmartFilterBar> -->
+    <smartTable:SmartTable entitySet="ModelBorsaSet" smartFilterId="smartFilterBar"
+    tableType="ResponsiveTable" useExportToExcel="true" beforeExport="onBeforeExport"
+    useVariantManagement="true" useTablePersonalisation="true" header="Line Items"
+    showRowCount="true" enableAutoBinding="true"
+    demandPopin="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" editTogglable="true" app:useSmartToggle="true">
+		<Table items="{path: 'selectHisse>/list'}"  id="innerUi5Table" growing="true" >		
+            <columns>
+                <Column
+                    width="12em"
+                    hAlign="Center">
+                    <Text text="Hisse" />
+                </Column>
+                <Column
+                    minScreenWidth="Tablet"
+                    demandPopin="true"
+                    hAlign="Center">
+                    <Text text="Hisse Adı" />
+                </Column>
+                <Column
+                    minScreenWidth="Desktop"
+                    demandPopin="true"
+                    hAlign="Center">
+                    <Text text="Alınan Tarih" />
+                </Column>
+                <Column
+                    minScreenWidth="Desktop"
+                    demandPopin="true"
+                    hAlign="Center">
+                    <Text text="Adet" />
+                </Column>
+                <Column
+                    hAlign="Center">
+                    <Text text="Alınan Fiyat" />
+                </Column>
+                <Column
+                hAlign="Center">
+                <Text text="Güncel Fiyat" />
+                 </Column>
+                  <Column
+                   hAlign="Center">
+                  <Text text="Maliyet" />
+               </Column>
+                <Column
+                  hAlign="Center">
+                 <Text text="Toplam Değer" />
+                 </Column>
+                  <Column
+                 hAlign="Center">
+                 <Text text="Kar/Zarar" />
+                    </Column>
+            </columns>
+            <items>
+            <ColumnListItem highlight="{path:'selectHisse>KarZarar', formatter:'.formatRowHighlight'}" >
+                <cells>
+					    <Input value = "{selectHisse>Hisse}"  editable="false"/>
+
+                        <ObjectIdentifier
+						text="{selectHisse>Aciklama}"/>
+
+                        <Input value ="{selectHisse>Tarih}" editable="false"/>
+
+                        <Input value ="{selectHisse>Adet}" editable="false"/>
+
+                        <Input value ="{selectHisse>Alis}" editable="false" textAlign="Center"/>
+
+                        <ObjectIdentifier
+						text="{selectHisse>GuncelFiyat}"/>
+
+                        <ObjectIdentifier
+						text="{selectHisse>Maliyet}"/>
+
+                        <ObjectIdentifier
+						text="{selectHisse>GuncelDeger}"/>
+
+                        <ObjectIdentifier
+						text="{selectHisse>KarZarar}" 
+                        />
+				</cells>
+			</ColumnListItem>
+        </items>
+		</Table>
+	</smartTable:SmartTable>
+
+</mvc:View>
